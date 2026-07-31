@@ -18,3 +18,27 @@ public interface FutureMetrics {
   double getCurrentAverage();
 }
 ```
+
+```java
+public class SimpleFutureMetrics implements FutureMetrics {
+  private final LongSupplier clock;
+
+  public SimpleFutureMetrics() {
+    this(System::currentTimeMillis);
+  }
+
+  SimpleFutureMetrics(LongSupplier clock) {
+    this.clock = clock;
+  }
+
+  @Override
+  public <T> CompletionStage<T> runMetered(Supplier<CompletionStage<T>> func) {
+    // TODO ...
+  }
+
+  @Override
+  public double getCurrentAverage() {
+    // TODO ...
+  }
+}
+```
