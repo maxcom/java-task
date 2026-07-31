@@ -11,3 +11,10 @@
 
 Нужно реализовать в классе SimpleFutureMetrics. Для получения текущего времени нужно использовать
 переданный LongSupplier (это нужно для тестов).
+
+```java
+public interface FutureMetrics {
+  <T> CompletionStage<T> runMetered(Supplier<CompletionStage<T>> func);
+  double getCurrentAverage();
+}
+```
